@@ -30,6 +30,8 @@
   - Index file which is the main entry and also its the container that can handle any business logic or side effect (only related to our component like api request only used by our componenet)
   - Test file
   - Css module ( I am not using it in this project and using panda)
+
+    **Note :** Common components have only index.tsx as they have only ui logic as they are mostly presentational  
   
 ## Test 
 - Tests added only to common components and you can run them by ```npm run test```
