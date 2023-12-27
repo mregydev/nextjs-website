@@ -8,7 +8,7 @@ const FooterComponent = () => {
         bg: 'gray.200',
         fontWeight: 'bold',
         width: '100%',
-        padding: 2,
+        padding: 1,
         textAlign: 'center',
         bottom: 0,
       })}
