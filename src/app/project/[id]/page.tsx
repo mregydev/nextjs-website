@@ -6,8 +6,8 @@ import AddToCart from '@/components/Cart/AddToCart';
 interface PropjectDetailsProps {
   params: { id: string };
 }
-const ProjectDetailsPage =async ({ params: { id } }: PropjectDetailsProps) => {
-  const project = await getProjectDetails(parseInt(id));
+const ProjectDetailsPage = ({ params: { id } }: PropjectDetailsProps) => {
+  const project = getProjectDetails(parseInt(id));
 
   
   return project ? (
