@@ -1,3 +1,4 @@
+const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   domains: ['ceezer-public-assets.s3.eu-central-1.amazonaws.com'],
@@ -7,4 +8,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
