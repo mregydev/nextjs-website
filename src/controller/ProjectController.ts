@@ -26,6 +26,10 @@ export const getAllProjects = async (
 
 
 export const getProjectDetails = async (projectId: number) => {
-  return projects.find((p) => p.id === projectId);
+  return new Promise((resolve)=>{
+    setTimeout(() => {
+      resolve(projects.find((p) => p.id === projectId));
+    }, 5000);
+  } )
 };
 
