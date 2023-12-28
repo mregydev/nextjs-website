@@ -11,10 +11,10 @@ interface ProjectPageProps {
 
 const ProjectsPage = async ({ searchParams }: ProjectPageProps) => {
   const filterCriteria: ProjectFilterCritera = {
-    name: searchParams['name'],
-    description: searchParams['description'],
-    min_volume: Number.parseInt(searchParams['min_volume']),
-    max_volume: Number.parseInt(searchParams['max_volume']),
+    name: searchParams.name,
+    description: searchParams.description,
+    minVolume: Number.parseInt(searchParams.min_volume),
+    maxVolume: Number.parseInt(searchParams.max_volume),
   };
 
   const projects = await getAllProjects(filterCriteria);
@@ -30,10 +30,10 @@ const ProjectsPage = async ({ searchParams }: ProjectPageProps) => {
       <div
         className={gridItem({ colSpan: { base: 12, md: 3 }, bg: 'gray.100' })}
       >
-        <Filter></Filter>
+        <Filter />
       </div>
       <div className={gridItem({ colSpan: { base: 12, md: 9 } })}>
-        <ProjectsList projects={projects}></ProjectsList>
+        <ProjectsList projects={projects} />
       </div>
     </div>
   );

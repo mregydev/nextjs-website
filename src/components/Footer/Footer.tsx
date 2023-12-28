@@ -1,6 +1,6 @@
 import { css } from '../../../styled-system/css';
 
-const FooterComponent = () => {
+function FooterComponent() {
   return (
     <footer
       className={css({
@@ -16,6 +16,6 @@ const FooterComponent = () => {
       Made with Chakra UI @2023
     </footer>
   );
-};
+}
 
 export default FooterComponent;

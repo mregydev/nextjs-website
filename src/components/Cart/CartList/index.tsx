@@ -1,15 +1,16 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { StoredProject } from '@/dtos/StoredProject';
 import CartList from './CartList';
 import {
   getAllProjects,
   removeProjectFromCart,
   updateNumberOfVolumes,
 } from '../../../utils';
-import { ChakraProvider } from '@chakra-ui/react';
-import { StoredProject } from '@/dtos/StoredProject';
-const CartListContainer = () => {
+
+function CartListContainer() {
   const [cartProjects, setCartProjects] = useState<StoredProject[]>([]);
   const [isItemRemoved, setItemRemoved] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -40,10 +41,10 @@ const CartListContainer = () => {
             updateNumberOfVolumes(numVolumes, projectId);
           }}
           onRemoveItem={handleRemove}
-        ></CartList>
+        />
       )}
     </ChakraProvider>
   );
-};
+}
 
 export default CartListContainer;

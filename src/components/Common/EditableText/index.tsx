@@ -4,70 +4,70 @@ import {
   Editable,
   EditableInput,
   EditablePreview,
-  
   IconButton,
   Input,
   useEditableControls,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
+const EditableControls = ({
+  isSaveButtonDisabled,
+}: {
+  isSaveButtonDisabled: boolean;
+}) => {
+  const {
+    isEditing,
+    getSubmitButtonProps,
+    getCancelButtonProps,
+    getEditButtonProps,
+  } = useEditableControls();
 
-export interface EditableTextProps
-{
-    type:string,
-    value:string,
-    label:string,
-    onSubmit:(newValue:string)=>void,
-    onChange:(newValue:string)=>void,
-    isSaveButtonDisabled?:boolean
-}
-const EditableText = ({value,onChange,onSubmit,label,type,isSaveButtonDisabled}:EditableTextProps) => {
-
-  const [inputValue, setInputValue] = useState(value);
-
-  
-  const EditableControls = () => {
-    const {
-      isEditing,
-      getSubmitButtonProps,
-      getCancelButtonProps,
-      getEditButtonProps,
-    } = useEditableControls();
-
-    return isEditing ? (
-      <ButtonGroup justifyContent='center'  size='sm'>
-        <IconButton
-          isDisabled={isSaveButtonDisabled}
-          aria-label='submit'
-          icon={<CheckIcon />}
-          {...getSubmitButtonProps()}
-        />
-        <IconButton
-          aria-label='cancel'
-          icon={<CloseIcon />}
-          {...getCancelButtonProps()}
-        />
-      </ButtonGroup>
-    ) : (
+  return isEditing ? (
+    <ButtonGroup justifyContent="center" size="sm">
       <IconButton
-        ml={2}
-        aria-label='edit'
-        size='sm'
-        icon={<EditIcon />}
-        {...getEditButtonProps()}
+        isDisabled={isSaveButtonDisabled}
+        aria-label="submit"
+        icon={<CheckIcon />}
+        {...getSubmitButtonProps()}
       />
-    );
-  };
+      <IconButton
+        aria-label="cancel"
+        icon={<CloseIcon />}
+        {...getCancelButtonProps()}
+      />
+    </ButtonGroup>
+  ) : (
+    <IconButton
+      ml={2}
+      aria-label="edit"
+      size="sm"
+      icon={<EditIcon />}
+      {...getEditButtonProps()}
+    />
+  );
+};
+
+export interface EditableTextProps {
+  type:string,
+  value:string,
+  label:string,
+  onSubmit:(newValue:string)=>void,
+  onChange:(newValue:string)=>void,
+  isSaveButtonDisabled:boolean,
+}
+function EditableText({
+  value, onChange, onSubmit, label, type, isSaveButtonDisabled,
+}:EditableTextProps) {
+  const [inputValue, setInputValue] = useState(value);
 
   return (
     <Editable
-      
       defaultValue={inputValue}
       isPreviewFocusable={false}
-      onSubmit={()=>onSubmit(inputValue)}
-      onChange={(value)=>onChange(value)}
+      onSubmit={() => onSubmit(inputValue)}
+      onChange={(newValue) => onChange(newValue)}
     >
-        <b>{label}</b> 
+      <b>{label}</b>
       <EditablePreview />
       <Input
         aria-label={label}
@@ -75,9 +75,9 @@ const EditableText = ({value,onChange,onSubmit,label,type,isSaveButtonDisabled}:
         onChange={(event) => setInputValue(event.target.value)}
         as={EditableInput}
       />
-      <EditableControls />
+      <EditableControls isSaveButtonDisabled={isSaveButtonDisabled} />
     </Editable>
   );
-};
+}
 
 export default EditableText;

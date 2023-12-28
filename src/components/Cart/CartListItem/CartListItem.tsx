@@ -16,7 +16,7 @@ interface CartListItemProps {
   onRemove: () => void;
 }
 
-const CartListItem = ({ project, onUpdate, onRemove }: CartListItemProps) => {
+function CartListItem({ project, onUpdate, onRemove }: CartListItemProps) {
   const [hasErrors, setHasErrors] = useState(false);
 
   const handleUpdate = useCallback(
@@ -25,7 +25,7 @@ const CartListItem = ({ project, onUpdate, onRemove }: CartListItemProps) => {
         onUpdate(parseInt(newValue));
       }
     },
-    [hasErrors, onUpdate]
+    [hasErrors, onUpdate],
   );
 
   const handleChange = useCallback(
@@ -36,7 +36,7 @@ const CartListItem = ({ project, onUpdate, onRemove }: CartListItemProps) => {
         setHasErrors(false);
       }
     },
-    [project.max_volume]
+    [project.max_volume],
   );
 
   const handleRemove = useCallback(() => {
@@ -46,38 +46,44 @@ const CartListItem = ({ project, onUpdate, onRemove }: CartListItemProps) => {
     <Box
       key={project.name}
       padding={5}
-      boxShadow='xl'
-      borderRadius={'xl'}
-      bg='gray.200'
+      boxShadow="xl"
+      borderRadius="xl"
+      bg="gray.200"
     >
       <Text>
-        <b>Project Name </b> {project.name}
+        <b>Project Name </b>
+        {' '}
+        {project.name}
       </Text>
       <Text mt={2}>
-        <b>Max number of volumes </b> {project.max_volume}
+        <b>Max number of volumes </b>
+        {' '}
+        {project.max_volume}
       </Text>
       <EditableText
-        type='number'
-        label='Selected number of volumes : '
+        type="number"
+        label="Selected number of volumes : "
         value={project.saved_volume.toString()}
         onSubmit={handleUpdate}
         onChange={handleChange}
         isSaveButtonDisabled={hasErrors}
-      ></EditableText>
+      />
       {hasErrors && (
-        <Alert mt={2} status='error'>
+        <Alert mt={2} status="error">
           <AlertIcon />
           <AlertDescription>
-            Volume should be less than {project.max_volume}
+            Volume should be less than
+            {' '}
+            {project.max_volume}
           </AlertDescription>
         </Alert>
       )}
 
-      <Button mt={2} colorScheme='red' onClick={handleRemove}>
+      <Button mt={2} colorScheme="red" onClick={handleRemove}>
         Remove
       </Button>
     </Box>
   );
-};
+}
 
 export default CartListItem;

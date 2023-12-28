@@ -1,12 +1,12 @@
 'use client';
 
 import { useCallback } from 'react';
-import Filter from './Filter';
 import { ProjectFilterCritera } from '@/dtos/ProjectFilterCriteria';
 import { useRouter } from 'next/navigation';
 import { Box, ChakraProvider } from '@chakra-ui/react';
+import Filter from './Filter';
 
-const FilterContainer = () => {
+function FilterContainer() {
   const router = useRouter();
 
   const applyFilter = useCallback(
@@ -15,28 +15,28 @@ const FilterContainer = () => {
       if (filterCrtiera.name) {
         params.append('name', filterCrtiera.name);
       }
-      if (filterCrtiera.min_volume) {
-        params.append('min_volume', filterCrtiera.min_volume.toString());
+      if (filterCrtiera.minVolume) {
+        params.append('min_volume', filterCrtiera.minVolume.toString());
       }
 
-      if (filterCrtiera.max_volume) {
-        params.append('max_volume', filterCrtiera.max_volume.toString());
+      if (filterCrtiera.maxVolume) {
+        params.append('max_volume', filterCrtiera.maxVolume.toString());
       }
 
       const queryString = params.toString();
 
       router.push(`/projects?${queryString}`);
     },
-    [router]
+    [router],
   );
 
   return (
     <ChakraProvider>
       <Box padding={4}>
-        <Filter applyFilter={applyFilter}></Filter>
+        <Filter applyFilter={applyFilter} />
       </Box>
     </ChakraProvider>
   );
-};
+}
 
 export default FilterContainer;

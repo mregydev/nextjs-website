@@ -5,8 +5,7 @@ import '@testing-library/jest-dom';
 import EditableText, { EditableTextProps } from '.';
 
 describe('EditableText component', () => {
-  const renderEditableText = (props: EditableTextProps) =>
-    render(<EditableText {...props}></EditableText>);
+  const renderEditableText = (props: EditableTextProps) => render(<EditableText {...props} />);
 
   const defaultProps = {
     type: 'text',
@@ -57,8 +56,8 @@ describe('EditableText component', () => {
     fireEvent.click(getByLabelText(/edit/i));
 
     fireEvent.change(getByLabelText(/test Label/i), {
-        target: { value: 'New Value' },
-      });
+      target: { value: 'New Value' },
+    });
 
     expect(getByLabelText(/submit/i)).toBeDisabled();
   });

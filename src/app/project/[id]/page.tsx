@@ -1,15 +1,14 @@
 import ProjectDetails from '@/components/Projects/ProjectDetails';
 import { getProjectDetails } from '@/controller/ProjectController';
-import { grid, gridItem } from '../../../../styled-system/patterns';
 import AddToCart from '@/components/Cart/AddToCart';
+import { grid, gridItem } from '../../../../styled-system/patterns';
 
 interface PropjectDetailsProps {
   params: { id: string };
 }
-const ProjectDetailsPage = ({ params: { id } }: PropjectDetailsProps) => {
+function ProjectDetailsPage({ params: { id } }: PropjectDetailsProps) {
   const project = getProjectDetails(parseInt(id));
 
-  
   return project ? (
     <div
       className={grid({
@@ -21,21 +20,19 @@ const ProjectDetailsPage = ({ params: { id } }: PropjectDetailsProps) => {
       <div
         className={gridItem({ colSpan: { base: 12, md: 3 }, bg: 'gray.100' })}
       >
-        {(
-          <AddToCart
-            projectId={project.id}
-            projectName={project.name}
-            maxNumberOfVolumes={project.offered_volume_in_tons}
-          ></AddToCart>
-        )}
+        <AddToCart
+          projectId={project.id}
+          projectName={project.name}
+          maxNumberOfVolumes={project.offered_volume_in_tons}
+        />
       </div>
       <div className={gridItem({ colSpan: { base: 12, md: 9 } })}>
         <ProjectDetails
           project={project}
-        ></ProjectDetails>
+        />
       </div>
     </div>
   ) : null;
-};
+}
 
 export default ProjectDetailsPage;
