@@ -13,6 +13,7 @@ describe('EditableText component', () => {
     label: 'Test Label',
     onSubmit: () => {},
     onChange: () => {},
+    isSaveButtonDisabled: false,
   };
 
   it('renders with initial values', () => {

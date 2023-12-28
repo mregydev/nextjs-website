@@ -56,7 +56,7 @@ export interface EditableTextProps {
   isSaveButtonDisabled:boolean,
 }
 function EditableText({
-  value, onChange, onSubmit, label, type, isSaveButtonDisabled,
+  value, onChange, onSubmit, label, type, isSaveButtonDisabled = false,
 }:EditableTextProps) {
   const [inputValue, setInputValue] = useState(value);
 
