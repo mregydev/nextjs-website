@@ -1,14 +1,12 @@
-import { ReactNode } from "react"
-import { css } from "../../../../styled-system/css";
+import { ReactNode } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { css } from '../../../../styled-system/css';
 
-interface SectionProps
-{
-    children:ReactNode[]
+interface SectionProps {
+  children:ReactNode[]
 }
 
-const Block=({children}:SectionProps)=>{
-  
+function Block({ children }:SectionProps) {
   return (
     <div className={css({ lineHeight: 2, mt: 3, display: 'flex' })}>
       {(children).map((child) => (

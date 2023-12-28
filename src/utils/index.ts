@@ -14,6 +14,7 @@ export const AddProjectToCart = (project: StoredProject) => {
 
   cartProjects.push(project);
   localStorage.setItem('cartProjects', JSON.stringify(cartProjects));
+  return true;
 };
 
 export const isProjectAddedToCart = (projectId: number) => {
@@ -25,7 +26,7 @@ export const isProjectAddedToCart = (projectId: number) => {
 export const removeProjectFromCart = (projectId: number) => {
   const cartProjects: StoredProject[] = getCartProjects();
   const filtertedProjects = cartProjects.filter(
-    (project) => project.id !== projectId
+    (project) => project.id !== projectId,
   );
   localStorage.setItem('cartProjects', JSON.stringify(filtertedProjects));
 };

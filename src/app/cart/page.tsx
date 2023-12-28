@@ -1,6 +1,6 @@
 import CartList from '@/components/Cart/CartList';
 
-const CartPage = () => {
-  return <CartList></CartList>;
-};
+function CartPage() {
+  return <CartList />;
+}
 export default CartPage;

@@ -1,14 +1,14 @@
 import Image from 'next/image';
-import { css } from '../../../../styled-system/css';
-import { stack } from '../../../../styled-system/patterns';
 import Link from 'next/link';
 import { Project } from '@/dtos/Project';
+import { css } from '../../../../styled-system/css';
+import { stack } from '../../../../styled-system/patterns';
 
 interface ProjectListItemProps {
   project: Project;
 }
 
-const ProjectItem = ({ project }: ProjectListItemProps) => {
+function ProjectItem({ project }: ProjectListItemProps) {
   return (
     <div
       className={css({
@@ -25,7 +25,7 @@ const ProjectItem = ({ project }: ProjectListItemProps) => {
             className={css({ borderRadius: 'md', height: 200 })}
             src={project.image}
             alt={project.name}
-            layout='fill'
+            layout="fill"
           />
         </div>
         <div className={stack({ mt: 2, wordSpacing: 2 })}>
@@ -48,13 +48,19 @@ const ProjectItem = ({ project }: ProjectListItemProps) => {
           </div>
           <div className={stack({ gap: '2' })}>
             <div className={css({ fontSize: 'sm' })}>
-              Offered volume : <b>{project.offered_volume_in_tons}</b>
+              Offered volume :
+              {' '}
+              <b>{project.offered_volume_in_tons}</b>
             </div>
             <div className={css({ fontSize: 'sm' })}>
-              Price per ton : <b>{project.price_per_ton}</b>
+              Price per ton :
+              {' '}
+              <b>{project.price_per_ton}</b>
             </div>
             <div className={css({ fontSize: 'sm' })}>
-              Deliver date : <b>{project.earliest_delivery}</b>
+              Deliver date :
+              {' '}
+              <b>{project.earliest_delivery}</b>
             </div>
           </div>
           <Link
@@ -80,6 +86,6 @@ const ProjectItem = ({ project }: ProjectListItemProps) => {
       </div>
     </div>
   );
-};
+}
 
 export default ProjectItem;

@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
-import AddToCart from './AddToCart';
 import NextLink from 'next/link';
 
 import {
@@ -12,21 +11,22 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react';
-import { AddProjectToCart, isProjectAddedToCart } from '../../../utils';
 import { StoredProject } from '@/dtos/StoredProject';
+import { AddProjectToCart, isProjectAddedToCart } from '../../../utils';
+import AddToCart from './AddToCart';
 
 interface AddToCartContainerProps {
   projectName: string;
   projectId: number;
   maxNumberOfVolumes: number;
 }
-const AddToCartContainer = ({
+function AddToCartContainer({
   projectName,
   projectId,
   maxNumberOfVolumes,
-}: AddToCartContainerProps) => {
+}: AddToCartContainerProps) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
-  const [isLoaded,setIsLoaded]=useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsAddedToCart(isProjectAddedToCart(projectId));
@@ -44,20 +44,22 @@ const AddToCartContainer = ({
       AddProjectToCart(project);
       setIsAddedToCart(true);
     },
-    [maxNumberOfVolumes, projectId, projectName]
+    [maxNumberOfVolumes, projectId, projectName],
   );
 
   return (
     <ChakraProvider>
       {isAddedToCart ? (
-        <Stack spacing={3} padding={5} fontWeight='bold' height={300}>
-          <Alert textAlign={'left'} status='warning'>
+        <Stack spacing={3} padding={5} fontWeight="bold" height={300}>
+          <Alert textAlign="left" status="warning">
             <AlertIcon />
             <Text>
-              Project is added to the cart , please check your{' '}
-              <Link color='blue' href='/cart' as={NextLink}>
+              Project is added to the cart , please check your
+              {' '}
+              <Link color="blue" href="/cart" as={NextLink}>
                 cart
-              </Link>{' '}
+              </Link>
+              {' '}
               page
             </Text>
           </Alert>
@@ -67,10 +69,10 @@ const AddToCartContainer = ({
           <AddToCart
             maxNumberOfVolumes={maxNumberOfVolumes}
             addToCartHandler={addToCartHandler}
-          ></AddToCart>
+          />
         )
       )}
     </ChakraProvider>
   );
-};
+}
 export default AddToCartContainer;

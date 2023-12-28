@@ -1,7 +1,6 @@
 export interface ProjectFilterCritera {
-    name?: string;
-    description?: string;
-    min_volume:number;
-    max_volume:number;
-  }
-  
+  name?: string;
+  description?: string;
+  minVolume:number;
+  maxVolume:number;
+}

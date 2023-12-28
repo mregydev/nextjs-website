@@ -1,7 +1,7 @@
 import { css } from '../../../styled-system/css';
 import HeaderLink from './HeaderLink';
 
-const HeaderComponent = () => {
+function HeaderComponent() {
   return (
     <header
       className={css({
@@ -14,10 +14,10 @@ const HeaderComponent = () => {
         alignItems: 'center',
       })}
     >
-      <HeaderLink href='/projects'> Projects</HeaderLink>
-      <HeaderLink href='/cart'> Cart</HeaderLink>
+      <HeaderLink href="/projects"> Projects</HeaderLink>
+      <HeaderLink href="/cart"> Cart</HeaderLink>
     </header>
   );
-};
+}
 
 export default HeaderComponent;

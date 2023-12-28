@@ -6,7 +6,7 @@ export interface ProjectsListProps {
   projects: Project[];
 }
 
-const ProjectsList = ({ projects }: ProjectsListProps) => {
+function ProjectsList({ projects }: ProjectsListProps) {
   return (
     <div
       className={grid({
@@ -16,10 +16,10 @@ const ProjectsList = ({ projects }: ProjectsListProps) => {
       })}
     >
       {projects.map((project) => (
-        <ProjectListItem key={project.id} project={project}></ProjectListItem>
+        <ProjectListItem key={project.id} project={project} />
       ))}
     </div>
   );
-};
+}
 
 export default ProjectsList;

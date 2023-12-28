@@ -1,13 +1,13 @@
-import { ReactElement, ReactNode } from 'react';
-import { css } from '../../../styled-system/css';
+import { ReactNode } from 'react';
 import Link from 'next/link';
+import { css } from '../../../styled-system/css';
 
 interface HeaderLinkProps {
   children: ReactNode;
   href: string;
 }
 
-const HeaderLink = ({ children, href }: HeaderLinkProps) => {
+function HeaderLink({ children, href }: HeaderLinkProps) {
   return (
     <Link href={href}>
       <div
@@ -16,7 +16,7 @@ const HeaderLink = ({ children, href }: HeaderLinkProps) => {
           fontWeight: 'bold',
           color: 'white',
           padding: 4,
-          cursor:'pointer',
+          cursor: 'pointer',
           _hover: {
             bg: 'gray.100',
             border: 2,
@@ -29,6 +29,6 @@ const HeaderLink = ({ children, href }: HeaderLinkProps) => {
       </div>
     </Link>
   );
-};
+}
 
 export default HeaderLink;
