@@ -17,9 +17,9 @@
 ## Performance 
 - On google lighthouse FCP is .3 seconds and blocking time is 110 ms which is good but LCP is 2.4 s and it takes quite long time because of the projects images which has very big size and it should be reduced using app like sqoosh 
 - Also Accessability is getting 100% and thats because of the used UI library for sure
-  <figure><img width="806" alt="image" src="https://github.com/mregydev/nextjs-website/assets/28675823/28c35236-2299-4bc0-bc01-86cb2624b465"><figcaption>Projects page</figcaption></figure>
+  <figure><img width="806" alt="image" src="https://github.com/mregydev/nextjs-website/assets/28675823/28c35236-2299-4bc0-bc01-86cb2624b465"><figcaption>**Projects page**</figcaption></figure>
 
-  <figure><img width="806" alt="image" src="https://github.com/mregydev/nextjs-website/assets/28675823/7ef8b2be-69c2-4c5b-9730-adf2036d75e7"><figcaption>Details Page</figcaption>/figure>
+  <figure><img width="806" alt="image" src="https://github.com/mregydev/nextjs-website/assets/28675823/7ef8b2be-69c2-4c5b-9730-adf2036d75e7"><figcaption>**Details Page**</figcaption></figure>
 
 
   
