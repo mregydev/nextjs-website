@@ -7,6 +7,7 @@
 - Main page show list of projects and when you click on any project it goes to the details page - In the details page you can see info about the project , on the left side you can add project to cart selecting number of volumes you want 
 - In the cart page it view list of choosed project , you can edit number of volumes per each project and also can remove project from cart
 - There are validations on filter components in projects page and add to cart in details page and edit cart item in cart page which check that inserted volume is bigger than max volume offered by project
+- For sdgs , we are using tags and in order to see full text hover over it
 
 ## Tehnical aspects : 
 - Application uses hyprid solution that contains mix of server and client components 
