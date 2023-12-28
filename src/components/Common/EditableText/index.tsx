@@ -63,6 +63,7 @@ function EditableText({
       <b>{label}</b>
       <EditablePreview />
       <Input
+        data-testid="editableText"
         aria-label={label}
         type={type}
         onChange={(event) => setInputValue(event.target.value)}

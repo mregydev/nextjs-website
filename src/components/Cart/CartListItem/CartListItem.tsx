@@ -11,7 +11,7 @@ import { useCallback, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import EditableText from '../../Common/EditableText';
 
-interface CartListItemProps {
+export interface CartListItemProps {
   project: StoredProject;
   onUpdate: (value: number) => void;
   onRemove: () => void;

@@ -37,7 +37,7 @@
     **Note :** Common components have only index.tsx as they have only ui logic as they are mostly presentational  
   
 ## Test 
-- Tests added only to common components and you can run them by ```npm run test```
+- Tests added only to common components and CartListItem and you can run them by ```npm run test```
 
 ## Things to improve
 - Add Not found in the details page when inserting invalid id
