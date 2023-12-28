@@ -75,7 +75,7 @@ function AddToProject({
 
         <Stack align="center">
           <Button
-            isDisabled={hasErrors}
+            isDisabled={hasErrors || !numberOfVolumes}
             borderRadius="full"
             mt="4"
             width="80%"
