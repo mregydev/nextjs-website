@@ -4,6 +4,7 @@ import SDGS from '@/constants/SDGS';
 import {
   Box, ChakraProvider, Tag, TagLabel, Tooltip,
 } from '@chakra-ui/react';
+import { v4 as uuidv4 } from 'uuid';
 
 interface SDGViewerProps {
   sdgs :number[]
@@ -19,7 +20,7 @@ function SDGViewer({ sdgs }:SDGViewerProps) {
               mr={3}
               mb={4}
               width={85}
-              key={sdg}
+              key={uuidv4()}
               borderRadius="full"
               variant="solid"
               colorScheme="cyan"

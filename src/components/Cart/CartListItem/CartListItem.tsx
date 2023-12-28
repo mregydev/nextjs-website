@@ -8,6 +8,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { useCallback, useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import EditableText from '../../Common/EditableText';
 
 interface CartListItemProps {
@@ -44,7 +45,7 @@ function CartListItem({ project, onUpdate, onRemove }: CartListItemProps) {
   }, [onRemove]);
   return (
     <Box
-      key={project.name}
+      key={uuidv4()}
       padding={5}
       boxShadow="xl"
       borderRadius="xl"

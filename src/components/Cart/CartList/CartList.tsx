@@ -4,6 +4,7 @@ import {
   Alert, AlertIcon, Box, SimpleGrid, Stack,
 } from '@chakra-ui/react';
 import { StoredProject } from '@/dtos/StoredProject';
+import { v4 as uuidv4 } from 'uuid';
 import CartListItem from '../CartListItem';
 
 interface CartListItemProps {
@@ -25,7 +26,7 @@ function CartList({ onUpdateItem, onRemoveItem, cartProjects = [] }: CartListIte
       )}
       <SimpleGrid columns={{ md: 3, sm: 1 }} spacing={4}>
         {cartProjects.map((project) => (
-          <Box padding={5} borderRadius="xl" key={project.name}>
+          <Box padding={5} borderRadius="xl" key={uuidv4()}>
             <CartListItem
               onRemove={() => onRemoveItem(project.id)}
               onUpdate={(newVolume) => onUpdateItem(project.id, newVolume)}

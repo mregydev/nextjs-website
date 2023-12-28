@@ -1,4 +1,5 @@
 import { Project } from '@/dtos/Project';
+import { v4 as uuidv4 } from 'uuid';
 import ProjectListItem from '../ProjectListItem';
 import { grid } from '../../../../styled-system/patterns';
 
@@ -16,7 +17,7 @@ function ProjectsList({ projects }: ProjectsListProps) {
       })}
     >
       {projects.map((project) => (
-        <ProjectListItem key={project.id} project={project} />
+        <ProjectListItem key={uuidv4()} project={project} />
       ))}
     </div>
   );

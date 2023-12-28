@@ -39,7 +39,7 @@ function ProjectDetails({ project }: ProjectDetailsProps) {
           {' '}
           <article>{project.description}</article>
         </div>
-        <Block key="first">
+        <Block>
           <>
             <b>Country : </b>
             {' '}
@@ -57,7 +57,7 @@ function ProjectDetails({ project }: ProjectDetailsProps) {
             {project.price_per_ton}
           </>
         </Block>
-        <Block key="second">
+        <Block>
           <>
             <b>Earliest delivery : </b>
             {' '}
