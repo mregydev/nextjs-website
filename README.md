@@ -42,7 +42,7 @@
 ## Things to improve
 - Add Not found in the details page when inserting invalid id
 - Add more unit tests
-- Add Card using in projects page to the common component
-- Improving LCP by reducing image size and quality in the projects page as we donot need high resolution as images are  already small
+- Add Card component ( used in projects page ) to the common components
+- Improving LCP by reducing image size and quality in the projects page as we donot need high resolution as image size is  already small
   
 
