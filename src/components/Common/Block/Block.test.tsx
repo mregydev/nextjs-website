@@ -1,15 +1,15 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import Block from '.';
 import '@testing-library/jest-dom';
 
 describe('Block test cases', () => {
   it('should render block children correctly', () => {
-    render(
+    const { getByText } = render(
       <Block>
         <span>test</span>
         <span>another</span>
       </Block>,
     );
-    expect(screen.getByText(/test/)).toBeInTheDocument();
+    expect(getByText(/test/)).toBeInTheDocument();
   });
 });
