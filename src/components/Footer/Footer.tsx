@@ -4,6 +4,8 @@ function FooterComponent() {
   return (
     <footer
       className={css({
+        position: 'fixed',
+        left: 0,
         color: 'blackalpha.600',
         bg: 'gray.200',
         fontWeight: 'bold',

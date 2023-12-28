@@ -36,7 +36,7 @@ export default function RootLayout({
           })}
         >
           <Header />
-          <div className={css({ height: '90vh', overflow: 'auto' })}>
+          <div className={css({ height: '92vh', overflow: 'auto' })}>
             {children}
           </div>
           <Footer />
