@@ -41,7 +41,7 @@ export const updateNumberOfVolumes = (value: number, projectId: number) => {
   const cartProjects: StoredProject[] = getCartProjects();
   const updatedCartProjects = cartProjects.map((project) => {
     if (project.id === projectId) {
-      return { ...project, saved_volume: value };
+      return { ...project, savedVolume: value };
     }
     return { ...project };
   });

@@ -37,9 +37,9 @@ function AddToCartContainer({
     (numberOfVolumes: number) => {
       const project: StoredProject = {
         id: projectId,
-        max_volume: maxNumberOfVolumes,
+        maxVolume: maxNumberOfVolumes,
         name: projectName,
-        saved_volume: numberOfVolumes,
+        savedVolume: numberOfVolumes,
       };
       AddProjectToCart(project);
       setIsAddedToCart(true);

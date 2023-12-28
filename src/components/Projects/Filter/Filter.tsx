@@ -29,8 +29,8 @@ function Filter({ applyFilter }: FilterProps) {
   const searchParams = useSearchParams();
   const [showError, setShowError] = useState(false);
   const [filterCriteria, setFilterCriteria] = useState<ProjectFilterCritera>({
-    minVolume: parseInt(searchParams.get('min_volume') ?? '0'),
-    maxVolume: parseInt(searchParams.get('max_volume') ?? '0'),
+    minVolume: parseInt(searchParams.get('minVolume') ?? '0'),
+    maxVolume: parseInt(searchParams.get('maxVolume') ?? '0'),
     name: searchParams.get('name') ?? '',
   });
 
@@ -84,7 +84,7 @@ function Filter({ applyFilter }: FilterProps) {
             min={0}
             max={20000}
             aria-label="slider-ex-1"
-            onChange={(data) => handleUpdateFilterCriteria('min_volume', data)}
+            onChange={(data) => handleUpdateFilterCriteria('minVolume', data)}
             defaultValue={30}
           >
             <SliderTrack bg="gray.400">
@@ -109,7 +109,7 @@ function Filter({ applyFilter }: FilterProps) {
             min={0}
             max={20000}
             aria-label="slider-ex-1"
-            onChange={(data) => handleUpdateFilterCriteria('max_volume', data)}
+            onChange={(data) => handleUpdateFilterCriteria('maxVolume', data)}
             defaultValue={30}
           >
             <SliderTrack bg="gray.400">
