@@ -13,6 +13,7 @@
 - Client components uses **Chakra UI** library and server components using **Panda Css** which uses Chakra also and this ensure consistency 
 - Client components are **Filter**  component in the projects page , **AddToCart** compoenent in the details page and whole **Cart** page for its usage for localstorage
 - I prefered making project list rendering and filtering on the server side ( as server component ) assuming that we may have large data set so this will be better in having less FCP time and thus having less user blocking time especially when dealing in slow networks and on mobile and also useful for SEO
+- Cart items are stored in local storage and thats why carts page is client side
 
 ## Performance 
 - On google lighthouse FCP is .3 seconds and blocking time is 110 ms which is good but LCP is 2.4 s and it takes quite long time because of the projects images which has very big size and it should be reduced using app like sqoosh 
