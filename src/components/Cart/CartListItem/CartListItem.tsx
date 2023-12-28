@@ -30,13 +30,13 @@ function CartListItem({ project, onUpdate, onRemove }: CartListItemProps) {
 
   const handleChange = useCallback(
     (value: string) => {
-      if (parseInt(value) > project.max_volume) {
+      if (parseInt(value) > project.maxVolume) {
         setHasErrors(true);
       } else {
         setHasErrors(false);
       }
     },
-    [project.max_volume],
+    [project.maxVolume],
   );
 
   const handleRemove = useCallback(() => {
@@ -58,12 +58,12 @@ function CartListItem({ project, onUpdate, onRemove }: CartListItemProps) {
       <Text mt={2}>
         <b>Max number of volumes </b>
         {' '}
-        {project.max_volume}
+        {project.maxVolume}
       </Text>
       <EditableText
         type="number"
         label="Selected number of volumes : "
-        value={project.saved_volume.toString()}
+        value={project.savedVolume.toString()}
         onSubmit={handleUpdate}
         onChange={handleChange}
         isSaveButtonDisabled={hasErrors}
@@ -74,7 +74,7 @@ function CartListItem({ project, onUpdate, onRemove }: CartListItemProps) {
           <AlertDescription>
             Volume should be less than
             {' '}
-            {project.max_volume}
+            {project.maxVolume}
           </AlertDescription>
         </Alert>
       )}

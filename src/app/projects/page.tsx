@@ -13,8 +13,8 @@ const ProjectsPage = async ({ searchParams }: ProjectPageProps) => {
   const filterCriteria: ProjectFilterCritera = {
     name: searchParams.name,
     description: searchParams.description,
-    minVolume: Number.parseInt(searchParams.min_volume),
-    maxVolume: Number.parseInt(searchParams.max_volume),
+    minVolume: Number.parseInt(searchParams.minVolume),
+    maxVolume: Number.parseInt(searchParams.maxVolume),
   };
 
   const projects = await getAllProjects(filterCriteria);

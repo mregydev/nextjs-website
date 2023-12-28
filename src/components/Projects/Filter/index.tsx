@@ -16,11 +16,11 @@ function FilterContainer() {
         params.append('name', filterCrtiera.name);
       }
       if (filterCrtiera.minVolume) {
-        params.append('min_volume', filterCrtiera.minVolume.toString());
+        params.append('minVolume', filterCrtiera.minVolume.toString());
       }
 
       if (filterCrtiera.maxVolume) {
-        params.append('max_volume', filterCrtiera.maxVolume.toString());
+        params.append('maxVolume', filterCrtiera.maxVolume.toString());
       }
 
       const queryString = params.toString();
