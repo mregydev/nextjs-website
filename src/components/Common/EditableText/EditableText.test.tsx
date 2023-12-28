@@ -12,7 +12,6 @@ describe('EditableText component', () => {
     value: 'Initial Value',
     label: 'Test Label',
     onSubmit: () => {},
-    onChange: () => {},
     isSaveButtonDisabled: false,
   };
 
@@ -23,14 +22,12 @@ describe('EditableText component', () => {
     expect(getByLabelText(/edit/i)).toBeInTheDocument();
   });
 
-  it('allows editing and submitting values', async () => {
+  it('Call onSubmit when accept button clicked', async () => {
     const onSubmitSpy = jest.fn();
-    const onChangeSpy = jest.fn();
 
     const { getByLabelText, getByText } = renderEditableText({
       ...defaultProps,
       onSubmit: onSubmitSpy,
-      onChange: onChangeSpy,
     });
 
     fireEvent.click(getByLabelText(/edit/i));
@@ -42,24 +39,8 @@ describe('EditableText component', () => {
     fireEvent.click(getByLabelText(/submit/i));
 
     await waitFor(() => {
-      expect(onChangeSpy).toHaveBeenCalledWith('New Value');
       expect(onSubmitSpy).toHaveBeenCalledWith('New Value');
       expect(getByText('New Value')).toBeInTheDocument();
     });
-  });
-
-  it('disables save button when specified', () => {
-    const { getByLabelText } = renderEditableText({
-      ...defaultProps,
-      isSaveButtonDisabled: true,
-    });
-
-    fireEvent.click(getByLabelText(/edit/i));
-
-    fireEvent.change(getByLabelText(/test Label/i), {
-      target: { value: 'New Value' },
-    });
-
-    expect(getByLabelText(/submit/i)).toBeDisabled();
   });
 });

@@ -19,25 +19,19 @@ interface CartListItemProps {
 
 function CartListItem({ project, onUpdate, onRemove }: CartListItemProps) {
   const [hasErrors, setHasErrors] = useState(false);
+  const [numberOfVolumes, setNumberOfVolumes] = useState(project.savedVolume.toString());
 
   const handleUpdate = useCallback(
     (newValue: string) => {
-      if (!hasErrors) {
-        onUpdate(parseInt(newValue));
-      }
-    },
-    [hasErrors, onUpdate],
-  );
-
-  const handleChange = useCallback(
-    (value: string) => {
-      if (parseInt(value) > project.maxVolume) {
+      if (parseInt(newValue) > project.maxVolume) {
         setHasErrors(true);
       } else {
         setHasErrors(false);
+        onUpdate(parseInt(newValue));
+        setNumberOfVolumes(newValue);
       }
     },
-    [project.maxVolume],
+    [onUpdate, project.maxVolume],
   );
 
   const handleRemove = useCallback(() => {
@@ -64,10 +58,8 @@ function CartListItem({ project, onUpdate, onRemove }: CartListItemProps) {
       <EditableText
         type="number"
         label="Selected number of volumes : "
-        value={project.savedVolume.toString()}
+        value={numberOfVolumes}
         onSubmit={handleUpdate}
-        onChange={handleChange}
-        isSaveButtonDisabled={hasErrors}
       />
       {hasErrors && (
         <Alert mt={2} status="error">

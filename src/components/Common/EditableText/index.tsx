@@ -10,11 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
-const EditableControls = ({
-  isSaveButtonDisabled,
-}: {
-  isSaveButtonDisabled: boolean;
-}) => {
+const EditableControls = () => {
   const {
     isEditing,
     getSubmitButtonProps,
@@ -25,7 +21,6 @@ const EditableControls = ({
   return isEditing ? (
     <ButtonGroup justifyContent="center" size="sm">
       <IconButton
-        isDisabled={isSaveButtonDisabled}
         aria-label="submit"
         icon={<CheckIcon />}
         {...getSubmitButtonProps()}
@@ -52,11 +47,10 @@ export interface EditableTextProps {
   value:string,
   label:string,
   onSubmit:(newValue:string)=>void,
-  onChange:(newValue:string)=>void,
-  isSaveButtonDisabled:boolean,
+
 }
 function EditableText({
-  value, onChange, onSubmit, label, type, isSaveButtonDisabled = false,
+  value, onSubmit, label, type,
 }:EditableTextProps) {
   const [inputValue, setInputValue] = useState(value);
 
@@ -65,7 +59,6 @@ function EditableText({
       defaultValue={inputValue}
       isPreviewFocusable={false}
       onSubmit={() => onSubmit(inputValue)}
-      onChange={(newValue) => onChange(newValue)}
     >
       <b>{label}</b>
       <EditablePreview />
@@ -75,7 +68,7 @@ function EditableText({
         onChange={(event) => setInputValue(event.target.value)}
         as={EditableInput}
       />
-      <EditableControls isSaveButtonDisabled={isSaveButtonDisabled} />
+      <EditableControls />
     </Editable>
   );
 }
