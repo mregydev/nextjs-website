@@ -6,6 +6,7 @@ import Footer from '@/components/Footer';
 
 import './globals.css';
 
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { css } from '../../styled-system/css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -38,6 +39,7 @@ export default function RootLayout({
           <Header />
           <div className={css({ height: '92vh', overflow: 'auto' })}>
             {children}
+            <SpeedInsights />
           </div>
           <Footer />
         </div>
